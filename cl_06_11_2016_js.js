@@ -208,3 +208,19 @@ document.addEventListener("DOMContentLoaded", function(){
 		myForm.submit();
 	});
 });
+
+
+// 4_eventy - zadanie 4
+
+document.addEventListener("DOMContentLoaded", function(){
+	var buttons = document.getElementsByTagName('button');
+	var counter = document.querySelector('.counter');
+	var localCounter = 0;
+
+	for(var i = 0;i < buttons.length; i++){
+		buttons[i].addEventListener('click', function(event){
+			localCounter++;
+			counter.innerHTML = localCounter;		
+		});
+	}
+});
