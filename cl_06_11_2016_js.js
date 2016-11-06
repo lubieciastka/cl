@@ -139,6 +139,7 @@ document.addEventListener("DOMContentLoaded", function(){
 document.addEventListener("DOMContentLoaded", function(){
 	var dataPriceCheckboxes = document.querySelectorAll('[data-price]');
 	var priceSum = document.getElementById('price');
+	var myForm = document.querySelector('form');
 
 	for(var i = 0;i < dataPriceCheckboxes.length;i++){
 		dataPriceCheckboxes[i].addEventListener('change', function(){
@@ -158,4 +159,11 @@ document.addEventListener("DOMContentLoaded", function(){
 	function prepareAmountToDisplay(value){
 		return Math.round(value*100)/100 + " zł"
 	}
+
+	myForm.addEventListener('submit', function(event){
+		event.preventDefault();
+
+		alert(priceSum.innerHTML.replace('.',','));
+	});
+
 });
