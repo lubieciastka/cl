@@ -73,6 +73,44 @@ document.addEventListener("DOMContentLoaded", function(){
 	});
 });
 
+// 6 - tworzenie nowych elementow - zadanie 3
+document.addEventListener("DOMContentLoaded", function(){
+	var button = document.getElementById('remove');
 
+	button.addEventListener('click', function(){
+		this.parentElement.removeChild(this);
+	});
+});
 
+// 6 - tworzenie nowych elementow - zadanie 5
+document.addEventListener("DOMContentLoaded", function(){
+	var buttons = document.getElementsByClassName('deleteBtn');
 
+	for(var i = 0; i < buttons.length;i++){
+		buttons[i].addEventListener('click', function(){
+			var tr = this.parentElement.parentElement;
+
+			tr.parentElement.removeChild(tr);
+		});
+	}
+});
+
+// 6 - tworzenie nowych elementow - zadanie 6
+document.addEventListener("DOMContentLoaded", function(){
+	var buttons = document.getElementsByClassName('moveBtn');
+
+	for(var i = 0; i < buttons.length;i++){
+		buttons[i].addEventListener('click', function(){
+			var li = this.parentElement;
+			var listId = li.parentElement.id;
+			
+			if(listId === "list1"){
+				document.getElementById('list2').appendChild(li);
+			}
+
+			if(listId === "list2"){
+				document.getElementById('list1').appendChild(li);
+			}
+		});
+	}
+});
