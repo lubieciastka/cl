@@ -165,5 +165,46 @@ document.addEventListener("DOMContentLoaded", function(){
 
 		alert(priceSum.innerHTML.replace('.',','));
 	});
+});
 
+// 7 inputy i formularze - zadanie 4
+document.addEventListener("DOMContentLoaded", function(){
+	var myForm = document.querySelector('form');
+
+	myForm.addEventListener('submit', function(event){
+		event.preventDefault();
+		var email = document.getElementById('email').value;
+		var name = document.getElementById('name').value;
+		var surname = document.getElementById('surname').value;
+		var pass1 = document.getElementById('pass1').value;
+		var pass2 = document.getElementById('pass2').value;
+		var agree = document.getElementById('agree').checked;
+
+		if (email.indexOf('@') < 0){
+			console.log('blad email');
+			return false;
+		}
+
+		if (name.length < 6){
+			console.log('blad name');
+			return false;
+		}
+
+		if (surname.length < 6){
+			console.log('blad surname');
+			return false;
+		}
+
+		if (pass1.length > 1 && pass1 !== pass2){
+			console.log('blad password');
+			return false;
+		}
+
+		if (!agree) {
+			console.log('blad checkbox');
+			return false;
+		}
+
+		myForm.submit();
+	});
 });
