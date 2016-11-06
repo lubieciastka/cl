@@ -114,3 +114,48 @@ document.addEventListener("DOMContentLoaded", function(){
 		});
 	}
 });
+
+// 7 - inputy i formularze - zadanie 1
+document.addEventListener("DOMContentLoaded", function(){
+	var invoiceCheckbox = document.getElementById('invoice');
+	var invoiceData = document.getElementById('invoiceData');
+	
+	invoiceData.classList.add('hide');
+
+	invoiceCheckbox.addEventListener('change', function(){
+		this.checked ? invoiceData.classList.remove('hide') : invoiceData.classList.add('hide');
+		
+		// to wyzej to jest to samo to co nizej - inny zapis
+		// if(!this.checked){
+		// 	invoiceData.classList.add('hide');
+		// }else{
+		// 	invoiceData.classList.remove('hide');
+		// }
+	});
+});
+
+// 7 - inputy i formularze - zadanie 2
+
+document.addEventListener("DOMContentLoaded", function(){
+	var dataPriceCheckboxes = document.querySelectorAll('[data-price]');
+	var priceSum = document.getElementById('price');
+
+	for(var i = 0;i < dataPriceCheckboxes.length;i++){
+		dataPriceCheckboxes[i].addEventListener('change', function(){
+			var suma = parseFloat(priceSum.innerHTML);
+			var newPrice = parseFloat(this.dataset.price);
+
+			if(this.checked){
+				//dodajemy do sumy
+				priceSum.innerHTML = prepareAmountToDisplay(suma + newPrice);
+			}else{
+				//odejmujemy od sumy
+				priceSum.innerHTML = prepareAmountToDisplay(suma - newPrice);
+			}
+		});
+	}
+
+	function prepareAmountToDisplay(value){
+		return Math.round(value*100)/100 + " zł"
+	}
+});
