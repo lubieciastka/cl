@@ -35,3 +35,30 @@ function printTable(array) {
 }
 
 printTable(fruits2);
+
+// zadanie z wykladowca
+
+function distFromAvarage (array) {
+    var sumFromArray = 0;
+    var arrayDifference = [];
+
+    for (var i = 0; i < array.length; i++){
+        sumFromArray += array[i];
+    }
+
+    var averageFromArray = sumFromArray / array.length;
+
+    // sprawdzamy roznice
+    for (var i = 0; i < array.length; i++){
+        arrayDifference.push(Math.abs(array[i] - averageFromArray));
+    }
+
+    console.log(arrayDifference);
+    
+    return arrayDifference;
+} 
+
+//testy
+distFromAvarage([1,2,3,4,5,6,7]); // => [3,2,1,0,1,2,3]; // (średnia z tablicy wejściowej to 4)
+distFromAvarage([1,1,1,1]); // => [0,0,0,0]; //(średnia z tablicy wejściowej to 1)
+distFromAvarage([2,8,3,7]); // => [3,3,2,2]; ///(średnia z tablicy wejściowej to 5)
