@@ -287,3 +287,81 @@ String.prototype.upperLower = function () {
 }
 
 console.log("test kuby".upperLower());
+
+// setinterval - dodatkowe
+
+var counter = 0;
+
+setInterval(function(){
+    console.log(counter);
+    counter++;
+}, 1000);
+
+// obiekty - zadanie 4
+// wersja literalna
+var car = {
+    brand: "Mercedes",
+    color: "Czarny",
+    numberOfKilometers: 0,
+    printCarinfo: function () {
+        console.log(this.brand + " " + this.color + ", " + this.numberOfKilometers + "km");
+    },
+    drive: function (kilometers) {
+        this.numberOfKilometers += kilometers;
+    }
+}
+
+car.printCarinfo();
+car.drive(20);
+car.printCarinfo();
+
+// wersja z konstruktorem 
+
+var Car = function(brand, color){
+    this.brand = brand;
+    this.color = color;
+    this.numberOfKilometers = 0;
+
+    this.printCarinfo = function () {
+        console.log(this.brand + " " + this.color + ", " + this.numberOfKilometers + "km");
+    },
+    this.drive = function (kilometers) {
+        this.numberOfKilometers += kilometers;
+    }
+}
+
+var mercedes = new Car("Mercedes2222", "czarny");
+var renault = new Car("Clio", "biale");
+
+mercedes.printCarinfo();
+mercedes.drive(20);
+mercedes.printCarinfo();
+
+renault.drive(123);
+renault.printCarinfo();
+
+// wersja z prototypem
+
+var Samochod = function(brand, color){
+    this.brand = brand;
+    this.color = color;
+    this.numberOfKilometers = 0;
+};
+
+Samochod.prototype.printCarinfo = function () {
+    console.log(this.brand + " " + this.color + ", " + this.numberOfKilometers + "km");
+};
+
+Samochod.prototype.drive = function (kilometers) {
+    this.numberOfKilometers += kilometers;
+};
+
+var mercedes = new Samochod("Mercedes123", "czarny");
+var renault = new Samochod("Clio321", "biale");
+
+mercedes.printCarinfo();
+mercedes.drive(20);
+mercedes.printCarinfo();
+
+renault.drive(123);
+renault.printCarinfo();
