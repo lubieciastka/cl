@@ -141,3 +141,39 @@ for (var i = 0; i < task2Array.length; i++){
         console.log(task2Array[i][j]);
     }
 }
+
+//tablice wielowymiarowe - zadanie z wykladowca
+
+var arr = [
+    [11, 12],
+    [42, 2],
+    [-4, -120],
+    [0, 0],
+    [1, 34]
+];
+
+function checkArray (array) {
+    var tempArray = [];
+
+    for (var i = 0; i < array.length; i++){
+        console.log('1 petla for', array[i]);
+        var returnValue = false;
+
+        for (var j = 0; j < array[i].length; j++){
+            console.log('2 petla for',array[i][j]);
+            if (array[i][j] % 2 === 1) {
+                returnValue = false;
+                break;
+            }else{
+                returnValue = true;
+            }
+            //console.log(array[i][j]);
+        }
+
+        tempArray.push(returnValue);
+    }
+
+    return tempArray;  
+}
+
+console.log(checkArray(arr));
