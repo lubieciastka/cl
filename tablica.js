@@ -177,3 +177,23 @@ function checkArray (array) {
 }
 
 console.log(checkArray(arr));
+
+//tablice wielowymiarowe - zadanie 3
+
+var arr = [
+    [11, 12],
+    [42, 2],
+    [-4, -120],
+    [0, 0],
+    [1, 34]
+];
+
+function print2DArray (array) {
+    for (var i = 0; i < array.length; i++){
+        for (var j = 0; j < array[i].length; j++){
+            console.log(array[i][j]);
+        }
+     }
+}
+
+print2DArray(arr);
