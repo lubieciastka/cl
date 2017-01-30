@@ -256,3 +256,34 @@ var person = {
 
 console.log(person);
 person.sayHello();
+
+//obiekty - zadanie 3
+
+var train = {};
+
+console.log(train instanceof Object);
+
+
+//obiekty - zadanie z wykladowca
+
+String.prototype.upperLower = function () {
+    var tempString = "";
+    var counter = 0;
+
+    for (var i = 0; i < this.length; i++){
+        //czy jest parzysta
+        if (this[i] === ' '){
+            tempString += ' ';
+            continue;
+        }
+        if (counter % 2 === 0) {
+            tempString += this[i].toUpperCase();
+        }else {
+            tempString += this[i].toLowerCase();
+        }
+        counter++;
+    }
+    return tempString;
+}
+
+console.log("test kuby".upperLower());
