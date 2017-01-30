@@ -111,3 +111,33 @@ function getEvenAvarage (array) {
 getEvenAvarage([1,2,3,4,5,6,7]);// => 4
 getEvenAvarage([1,1,1,1]);// => null
 getEvenAvarage([2,8,3,7,4]); //=> 4.666
+
+
+//tablice wielowymiarowe - zadanie 2
+
+var task2Array = [
+                  [1, 2, 3, 4],
+                  [5, 6, 7, 8],
+                  [9, 10, 11, 12]
+            ];
+
+// pkt. 1:
+
+console.log('-- 1 --');
+for (var i = 0; i < task2Array.length; i++){
+    console.log(task2Array[i]);
+}
+
+// pkt. 2:
+console.log('-- 2 --');
+for (var i = 0; i < task2Array.length; i++){
+    console.log(task2Array[i].length);
+}
+
+// pkt. 3:
+console.log('-- 3 --');
+for (var i = 0; i < task2Array.length; i++){
+    for (var j = 0; j < task2Array[i].length; j++){
+        console.log(task2Array[i][j]);
+    }
+}
