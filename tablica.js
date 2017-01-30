@@ -232,3 +232,27 @@ create2DArray(4, 4);
 //     ['0', 'x','0'],
 //     ['f', '1', 'x']
 // ]
+
+//obiekty - zadanie 1
+
+var book = {
+    title: "you don't know JS",
+    author: "Kyle Simpson",
+    numberOfPages: 1234    
+}
+
+console.log(book);
+console.log(book.title, book.author, book.numberOfPages);
+
+//obiekty - zadanie 2
+
+var person = {
+    name: "test",
+    age: "18",
+    sayHello: function() {
+        console.log('hello');
+    }
+};
+
+console.log(person);
+person.sayHello();
