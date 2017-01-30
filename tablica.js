@@ -81,3 +81,33 @@ function multiply (array) {
 multiply([1,2,3,4,5,6,7]);// => 5040
 multiply([1,1,1,1]);// => 1
 multiply([2,8,3,7]);// => 336
+
+// zadanie 5
+
+function getEvenAvarage (array) {
+    var sumFromArray = 0;
+    var numberFromArray = 0;
+
+    for (var i = 0; i < array.length; i++){
+        if (array[i] % 2 === 0) {
+            sumFromArray += array[i];
+            numberFromArray += 1;
+        }
+    }
+    
+    if (numberFromArray === 0){
+        console.log(null);
+        return null;
+    }
+     
+    var averageFromArray = sumFromArray / numberFromArray;
+
+    console.log(averageFromArray);
+    
+    return averageFromArray;
+} 
+
+//testy
+getEvenAvarage([1,2,3,4,5,6,7]);// => 4
+getEvenAvarage([1,1,1,1]);// => null
+getEvenAvarage([2,8,3,7,4]); //=> 4.666
