@@ -62,3 +62,22 @@ function distFromAvarage (array) {
 distFromAvarage([1,2,3,4,5,6,7]); // => [3,2,1,0,1,2,3]; // (średnia z tablicy wejściowej to 4)
 distFromAvarage([1,1,1,1]); // => [0,0,0,0]; //(średnia z tablicy wejściowej to 1)
 distFromAvarage([2,8,3,7]); // => [3,3,2,2]; ///(średnia z tablicy wejściowej to 5)
+
+// zadanie 4
+
+function multiply (array) {
+    var multiplicationFromArray = 1;
+   
+    for (var i = 0; i < array.length; i++){
+        multiplicationFromArray *= array[i];
+    }
+
+    console.log(multiplicationFromArray);
+    
+    return multiplicationFromArray;
+} 
+
+//testy
+multiply([1,2,3,4,5,6,7]);// => 5040
+multiply([1,1,1,1]);// => 1
+multiply([2,8,3,7]);// => 336
