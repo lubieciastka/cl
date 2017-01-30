@@ -197,3 +197,38 @@ function print2DArray (array) {
 }
 
 print2DArray(arr);
+
+//tablice wielowymiarowe - zadanie 5
+
+
+function create2DArray (rows, columns) {
+    var returnArray = [];
+    var counter = 1;
+
+    for (var i = 0; i < rows; i++) {
+        var tempArray = [];
+        
+        for (var j = 0; j < columns; j++ ){
+            tempArray.push(counter);
+            counter = counter + 1;
+        }
+
+        returnArray.push(tempArray);
+    }
+
+    return returnArray;
+}
+
+create2DArray(4, 4);
+
+// [
+//     ['x','x','x'],
+//     ['x','x','x'],
+//     ['x','x','x'],
+// ]
+
+// [
+//     ['x','0','x'],
+//     ['0', 'x','0'],
+//     ['f', '1', 'x']
+// ]
