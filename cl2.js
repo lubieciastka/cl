@@ -34,9 +34,11 @@ findMax(5, 9, 6, 4, 34, 56, 2, 3, 12312, 123323,2993293,1, 1235,465475,775);
 
 // funkcje zaawansowane - zadanie 3
 
+// funkcje zaawansowane - zadanie 3
+
 function countHello (howMany) {
     // sprawdzamy czy howMany jest w przedzial <1;10>
-    if ( howMany < 1 && howMany > 10) {
+    if ( howMany < 1 || howMany > 10) {
         return;
     }
     var counter = 0;
@@ -51,4 +53,5 @@ function countHello (howMany) {
     }, 1000);
 }
 
-countHello(5);
+countHello(11);
+
