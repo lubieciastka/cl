@@ -148,4 +148,43 @@ document.addEventListener("DOMContentLoaded", function() {
 	getDataAnimation(title);
 });
 
+/**
+ * Created by Jacek on 2016-01-11.
+ */
+
+document.addEventListener("DOMContentLoaded", function(){
+    var homeElement = document.getElementById("home");
+    var childElements = document.querySelector(".oferts").children;
+    var banner = document.querySelector(".ban");
+    var blocks = document.querySelectorAll(".block");
+    var links = document.querySelector(".links").children;
+
+    /*
+    Poniżej napisz kod rozwiązujący zadania
+     */
+
+     // z wykladowca
+
+	function getDatasInfo (elements) {
+		var tempArray = [];
+
+		for (var i = 0; i < elements.length; i++){
+			tempArray.push(elements[i].dataset);
+		}
+
+		return tempArray;
+	}
+
+    getDatasInfo(links);
+
+    //zadanie 1
+
+    for (var i = 0; i < childElements.length; i++){
+    	console.log(childElements[i].className, childElements[i].tagName);
+    }
+
+
+});
+
+
 
