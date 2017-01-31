@@ -55,3 +55,84 @@ function countHello (howMany) {
 
 countHello(11);
 
+
+/**
+ * Created by Jacek on 2016-01-11.
+ */
+
+ // mail: jakub@chamicewicz.com
+
+document.addEventListener("DOMContentLoaded", function() {
+ //  	Wyszukaj na stronie następujące elementy i zapisz je do odpowiednio nazwanych
+ //   	zmiennych: 1. Element o id home (na dwa sposoby). 2. Pierwszy element li 
+ //nieposiadający atrybutu data-direction. 3. Pierwszy element o klasie block.
+
+	// Pamiętaj, żeby za każdym razem sprawdzić, czy wczytałeś odpowiedni element. 
+	// Pamiętaj, żeby używać funkcji, które wyszukują tylko jeden element.
+
+	var home1 = document.getElementById('home');
+	var home2 = document.querySelector('#home');
+
+	console.log(home1, home2);
+
+	var li = document.querySelector('li:not([data-direction])');
+
+	console.log(li);
+
+	var block = document.querySelector('.block');
+
+	// console.log(block);
+
+
+	//Wyszukaj na stronie następujące elementy i zapisz je do odpowiednio 
+	//nazwanych zmiennych: 
+	//1. Wszystkie elementy li znajdujące się w tagu nav. 
+	//2. Wszystkie paragrafy należące do wszystkich elementów div. 
+	//3. Wszystkie divy znajdujące się w tagu article.
+
+	//Pamiętaj, żeby za każdym razem sprawdzić, czy wczytałeś odpowiednie elementy. 
+	//Pamiętaj, żeby używać funkcji, które wyszukują wiele elementów. 
+	//Za każdym razem wypisz w konsoli, ile znalazłeś elementów.
+
+	var allLiInNav = document.querySelectorAll('nav li');
+	console.log(allLiInNav);
+
+	var allPInDivs = document.querySelectorAll('div p');
+	console.log(allPInDivs);
+
+	var allDivInArticle = document.querySelectorAll('article div');
+	console.log(allDivInArticle);
+
+
+	//zadanie 3
+	// Wyszukaj na stronie i zapisz do odpowiednio nazwanej zmiennej tag article o klasie first.
+	// W kolejnym etapie:
+	// wypisz w konsoli, ile elementów h1 znajduje się w tym tagu.
+	// wyszukaj w nim wszystkie elementy o klasie oferts, przeiteruj je i wypisz nazwy ich tagów w konsoli,
+	// wyszukaj w nim wszystkie elementy div, przeiteruj je i wypisz nazwy ich klas w konsoli.
+	// Pamiętaj, żeby za każdym razem sprawdzić, czy wczytałeś odpowiednie elementy. Pamiętaj, żeby używać 
+	// funkcji, które wyszukują wiele elementów. Za każdym razem wypisz w konsoli, ile jest znalezionych przez Ciebie elementów.
+
+	// var articleFirst = document.querySelector('article.first');
+	// console.log(articleFirst);
+
+	// var allH1inArticleFirst = articleFirst.getElementsByTagName('h1');
+	// console.log(allH1inArticleFirst.length);
+
+	// var ofertsInArticleFirst = articleFirst.getElementsByClassName('oferts');
+	// console.log(ofertsInArticleFirst);
+
+	// for (var i = 0; i < ofertsInArticleFirst.length; i++){
+	// 	console.log(i, ofertsInArticleFirst[i], ofertsInArticleFirst[i].tagName);
+	// }
+
+	// var allDivsInArticleFirst = articleFirst.getElementsByTagName('div');
+
+	// console.log(allDivsInArticleFirst);
+
+	// for (var i = 0; i < allDivsInArticleFirst.length; i++){
+	// 	console.log(i, allDivsInArticleFirst[i], allDivsInArticleFirst[i].className);
+	// }	
+});
+
+
