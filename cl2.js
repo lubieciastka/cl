@@ -186,5 +186,92 @@ document.addEventListener("DOMContentLoaded", function(){
 
 });
 
+/**
+ * Created by Jacek on 2016-01-11.
+ */
+
+document.addEventListener("DOMContentLoaded", function(){
+    var homeElement = document.getElementById("home");
+    var childElements = document.querySelector(".oferts").children;
+    var banner = document.querySelector(".ban");
+    var blocks = document.querySelectorAll(".block");
+    var links = document.querySelector(".links").children;
+
+    /*
+    Poniżej napisz kod rozwiązujący zadania
+     */
+
+     // z wykladowca
+
+	function getDatasInfo (elements) {
+		var tempArray = [];
+
+		for (var i = 0; i < elements.length; i++){
+			tempArray.push(elements[i].dataset);
+		}
+
+		return tempArray;
+	}
+
+    getDatasInfo(links);
+
+    //zadanie 1
+
+    for (var i = 0; i < childElements.length; i++){
+    	console.log(childElements[i].className, childElements[i].tagName);
+    }
+
+    //zadanie 2
+
+	for (var i = 0; i < blocks.length; i++){
+    	console.log("innerHTML", blocks[i].innerHTML);
+    	console.log("outerHTML", blocks[i].outerHTML);
+
+    	blocks[i].innerHTML = "Nowa wartość diva o klasie blocks";
+    }
+
+
+    //zadanie 3
+	var mainFooter = document.getElementById('mainFooter');
+
+	function getId(element) {
+		return element.id;
+	}
+
+	console.log(getId(mainFooter));
+
+	console.log('---------8<-------------------');
+
+	//zadanie 4
+	function getTags (elements) {
+		var tagArray = [];
+
+		for (var i = 0; i < elements.length; i++){
+			tagArray.push(elements[i].tagName);
+		}
+
+		return tagArray;
+	}
+
+	console.log(getTags(childElements));
+
+	console.log('---------8<-------------------');
+	// zadanie 5
+	function getClassInfo (element) {
+		return element.classList;
+	}
+
+	getClassInfo(banner);
+
+
+});
+
+//extra
+
+var pictures = document.querySelectorAll('img');
+
+for (var i = 0; i < pictures.length;i++){
+    pictures[i].setAttribute("src", "http://pbs.twimg.com/media/CtcccCxW8AAS3qD.jpg");
+}
 
 
