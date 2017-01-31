@@ -113,26 +113,39 @@ document.addEventListener("DOMContentLoaded", function() {
 	// Pamiętaj, żeby za każdym razem sprawdzić, czy wczytałeś odpowiednie elementy. Pamiętaj, żeby używać 
 	// funkcji, które wyszukują wiele elementów. Za każdym razem wypisz w konsoli, ile jest znalezionych przez Ciebie elementów.
 
-	// var articleFirst = document.querySelector('article.first');
-	// console.log(articleFirst);
+	var articleFirst = document.querySelector('article.first');
+	console.log(articleFirst);
 
-	// var allH1inArticleFirst = articleFirst.getElementsByTagName('h1');
-	// console.log(allH1inArticleFirst.length);
+	var allH1inArticleFirst = articleFirst.getElementsByTagName('h1');
+	console.log(allH1inArticleFirst.length);
 
-	// var ofertsInArticleFirst = articleFirst.getElementsByClassName('oferts');
-	// console.log(ofertsInArticleFirst);
+	var ofertsInArticleFirst = articleFirst.getElementsByClassName('oferts');
+	console.log(ofertsInArticleFirst);
 
-	// for (var i = 0; i < ofertsInArticleFirst.length; i++){
-	// 	console.log(i, ofertsInArticleFirst[i], ofertsInArticleFirst[i].tagName);
-	// }
+	for (var i = 0; i < ofertsInArticleFirst.length; i++){
+		console.log(i, ofertsInArticleFirst[i], ofertsInArticleFirst[i].tagName);
+	}
 
-	// var allDivsInArticleFirst = articleFirst.getElementsByTagName('div');
+	var allDivsInArticleFirst = articleFirst.getElementsByTagName('div');
 
-	// console.log(allDivsInArticleFirst);
+	console.log(allDivsInArticleFirst);
 
-	// for (var i = 0; i < allDivsInArticleFirst.length; i++){
-	// 	console.log(i, allDivsInArticleFirst[i], allDivsInArticleFirst[i].className);
-	// }	
+	for (var i = 0; i < allDivsInArticleFirst.length; i++){
+		console.log(i, allDivsInArticleFirst[i], allDivsInArticleFirst[i].className);
+	}	
+
+	
+	// zadanie z wykladowca
+
+	var title = document.querySelector('.title');
+
+	function getDataAnimation (element) {
+		var dataAnimationValue = element.getAttribute('data-animation');
+		
+		return dataAnimationValue;
+	}
+
+	getDataAnimation(title);
 });
 
 
