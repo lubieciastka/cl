@@ -137,3 +137,17 @@ document.addEventListener('DOMContentLoaded', function(){
 		console.log("hello world!");
 	});
 });
+
+//eventy - zadanie 4
+document.addEventListener('DOMContentLoaded', function(){
+	var buttons = document.getElementsByTagName('button');
+	var counter = document.querySelector('.counter');
+	var counterValue = 0;
+
+	for(var i = 0; i < buttons.length; i++){
+		buttons[i].addEventListener('click', function(){
+			counterValue++;
+			counter.innerHTML = counterValue;
+		});
+	}
+});
