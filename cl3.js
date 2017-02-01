@@ -164,3 +164,21 @@ document.addEventListener('DOMContentLoaded', function(){
 		});
 	}
 });
+
+//eventy - zadanie 6
+document.addEventListener('DOMContentLoaded', function(){
+	
+	var box = document.getElementById('box');
+	var globalX = document.getElementById('globalX');
+	var globalY = document.getElementById('globalY');
+	var localX = document.getElementById('localX');
+	var localY = document.getElementById('localY');
+
+	box.addEventListener('mousemove', function(event){
+		globalX.innerHTML = event.screenX;
+		globalY.innerHTML = event.screenY;
+
+		localX.innerHTML = event.clientX;
+		localY.innerHTML = event.clientY;
+	});
+});
