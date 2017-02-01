@@ -84,17 +84,47 @@ document.addEventListener("DOMContentLoaded", function(){
 
 		// console.log(ex5li[i].dataset.direction);
 	}
+});
 
+document.addEventListener("DOMContentLoaded", function() {
 
+	var parents = document.getElementsByClassName('parent');
 
+	for (var i = 0; i < parents.length; i++){
+		parents[i].addEventListener('mouseover', function () {
+			var children = this.querySelector('.children');
+			
+			children.style.display = 'block';
+		});
+		
+		parents[i].addEventListener('mouseout', function () {
+			var children = this.querySelector('.children');
 
+			children.style.display = 'none';
+		});
+	}
+});
 
+document.addEventListener("DOMContentLoaded", function() {
 
+	var parents = document.getElementsByClassName('parent');
 
+	for (var i = 0; i < parents.length; i++){
+		parents[i].addEventListener('mouseover', function () {
+			var children = this.querySelector('.children');
+			
+			children.style.display = 'block';
+		});
+		
+		parents[i].addEventListener('mouseout', function () {
+			var _this = this;
+			hideChildrenElement();
 
+			function hideChildrenElement () {
+				var children = _this.querySelector('.children');
 
-
-
-
-
+				children.style.display = 'none';
+			}
+		});
+	}
 });
