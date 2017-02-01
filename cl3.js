@@ -151,3 +151,16 @@ document.addEventListener('DOMContentLoaded', function(){
 		});
 	}
 });
+
+//eventy - zadanie 5
+document.addEventListener('DOMContentLoaded', function(){
+	var boxes = document.getElementsByClassName('box');
+
+	for(var i = 0; i < boxes.length; i++){
+		boxes[i].addEventListener('click', function(){
+			var randomColor = "#" + Math.floor(Math.random()*16777215).toString(16);
+
+			this.style.backgroundColor = randomColor;
+		});
+	}
+});
