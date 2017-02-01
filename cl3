@@ -1,0 +1,17 @@
+//cl3
+
+/**
+ * Created by Jacek on 2016-01-11.
+ */
+
+document.addEventListener("DOMContentLoaded", function(){
+
+	var ex1 = document.querySelector('.exercise.ex1');
+
+	var ex1chrome = ex1.querySelector('.chrome');
+	var ex1firefox = ex1.querySelector('.firefox');
+	var ex1edge = ex1.querySelector('.edge');
+
+	ex1firefox.style.backgroundImage = 'url(assets/img/firefox.png)';
+	ex1edge.style.backgroundImage = 'url(assets/img/edge.png)';
+});
