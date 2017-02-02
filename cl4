@@ -92,3 +92,32 @@ document.addEventListener('DOMContentLoaded', function () {
 		menu.appendChild(newLi);
 	});
 });
+
+//6 - zadanie 2
+document.addEventListener('DOMContentLoaded', function () {
+	var button = document.querySelector('.button');
+	var orders = document.getElementById('orders').firstElementChild;
+
+	button.addEventListener('click', function(){
+
+		var orderId = document.getElementById('orderId').value;
+		var item = document.getElementById('item').value;
+		var quantity = document.getElementById('quantity').value;
+ 		
+		var newRow = document.createElement('tr');
+		// ------------------
+		//TUTAJ prosze zrobic wersje ze stworzeniem 3 nowych elementow
+		// ------------------
+		newRow.innerHTML = "<td>" + orderId + "</td><td>" + item + "</td><td>" + quantity + "</td>";
+		orders.appendChild(newRow);
+	});
+});
+
+//6 - zadanie 3
+document.addEventListener('DOMContentLoaded', function () {
+	var button = document.getElementById('remove');
+
+	button.addEventListener('click', function(){
+		this.parentElement.removeChild(this);
+	});
+});
