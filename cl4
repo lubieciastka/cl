@@ -26,3 +26,53 @@ document.addEventListener('DOMContentLoaded', function () {
 		});
 	}
 });
+
+//zadanie 3
+document.addEventListener('DOMContentLoaded', function () {
+
+	var listContainers = document.getElementsByClassName('listContainer');
+
+	for(var i = 0; i < listContainers.length; i++) {
+		listContainers[i].addEventListener('mouseover', function(){
+			var allLi = this.firstElementChild.children;
+
+			for(var j = 0; j < allLi.length; j++){
+				allLi[j].style.backgroundColor = "blue";
+			}
+
+			allLi[0].style.backgroundColor = "red";
+			allLi[allLi.length - 1].style.backgroundColor = "#00ff00";
+		});
+	}
+});
+
+//zadanie z wykladowca
+document.addEventListener('DOMContentLoaded', function () {
+
+	var divWithFirst = document.querySelector('.first');
+	var divWithFirstFirstChild = divWithFirst.firstElementChild;
+	var answer1 = divWithFirstFirstChild.children[2];
+
+
+	var answer2 = document.getElementById('second').parentElement.children[3];
+
+	var tempAnswer3 = document.querySelector('[data-ex="third"]')
+						.parentElement
+						.parentElement
+						.lastElementChild
+						.firstElementChild
+						.children;
+
+	var tempAnswer3Middle = Math.ceil((tempAnswer3.length - 1) / 2);
+	var answer3 = tempAnswer3[tempAnswer3Middle];
+
+	console.log(answer3);
+
+	var answer4 = document.querySelector('.forth')
+							.parentElement
+							.querySelector('article')
+							.querySelectorAll('p')[1];
+
+	console.log(answer4);
+	
+});
