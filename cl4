@@ -76,3 +76,19 @@ document.addEventListener('DOMContentLoaded', function () {
 	console.log(answer4);
 	
 });
+
+
+//6 - zadanie 1
+document.addEventListener('DOMContentLoaded', function () {
+	var button = document.querySelector('.button');
+	var menu = document.querySelector('.menu');
+	var counter = 0;
+
+	button.addEventListener('click', function(){
+		var newLi = document.createElement('li');
+
+		counter++;
+		newLi.innerHTML = "jest tyle elementow:" + counter;
+		menu.appendChild(newLi);
+	});
+});
