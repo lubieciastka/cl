@@ -121,3 +121,43 @@ document.addEventListener('DOMContentLoaded', function () {
 		this.parentElement.removeChild(this);
 	});
 });
+
+//6 - zadanie 4
+document.addEventListener('DOMContentLoaded', function () {
+	var button = document.getElementById('remove');
+	var listLi = document.querySelectorAll('.list li');
+
+	button.addEventListener('click', function(){
+		for(var i = 0; i < listLi.length; i++){
+			listLi[i].parentElement.removeChild(listLi[i]);
+		}
+	});
+});
+
+//6 - zadanie 5
+document.addEventListener('DOMContentLoaded', function () {
+	var buttons = document.getElementsByClassName('moveBtn');
+
+	for(var i = 0; i < buttons.length; i++){
+		buttons[i].addEventListener('click', mojSuperEvent);
+	}
+
+	function mojSuperEvent() {
+		var skopiowanyLi = this.parentNode.cloneNode(true);
+		// wyszukujemy id dziadka (dwa elementy wyzej) - poto aby sprawdzic w ktorej liscie jestesmy
+		var idDziadkaSkopiowanegoLi = this.parentNode.parentNode.id;
+
+		if (idDziadkaSkopiowanegoLi === "list1"){
+			//jestesmy w liscie nr. 1 => wrzucamy do listy numer 2
+			document.querySelector('#list2').appendChild(skopiowanyLi);
+		}else{
+			//jestesmy w liscie nr. 2 => wrzucamy do listy numer 1
+			document.querySelector('#list1').appendChild(skopiowanyLi);
+		}
+
+		// dodajemy ponownie dla buttona event click
+		skopiowanyLi.firstElementChild.addEventListener('click', mojSuperEvent);
+
+		this.parentNode.parentNode.removeChild(this.parentNode);
+	}
+});
