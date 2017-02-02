@@ -174,3 +174,51 @@ document.addEventListener('DOMContentLoaded', function () {
 		});
 	}
 });
+
+// dzien 3 - zadanie 8
+document.addEventListener("DOMContentLoaded", function(){
+	var windowHeight = document.getElementById('windowHeight');
+	var windowWidth = document.getElementById('windowWidth');
+
+	updateData();
+
+	window.addEventListener("resize", updateData);
+
+	function updateData () {
+		windowWidth.innerHTML = window.innerWidth;
+		windowHeight.innerHTML = window.innerHeight;
+	}
+});
+
+//dzien 3 - zadanie 7
+
+document.addEventListener("DOMContentLoaded", function(){
+	document.querySelector('#element1').addEventListener('click', function(e){
+		console.log('Event in #element1 fired!');
+	});
+	
+	document.querySelector('#element2').addEventListener('click', function(event){
+		event.stopPropagation();
+		console.log('Event in #element2 fired!');
+	});
+	
+	document.querySelector('#element3').addEventListener('click', function(e){
+		console.log('Event in #element3 fired!');
+	});
+	
+	document.querySelector('#element4').addEventListener('click', function(e){
+		console.log('1Event in #element4 fired!');
+	});
+	document.querySelector('#element4').addEventListener('click', function(e){
+		console.log('2Event in #element4 fired!');
+	});
+	
+	document.querySelector('#element5').addEventListener('click', function(e){
+		e.stopPropagation();
+		console.log('1Event in #element5 fired!');
+	});
+
+	document.querySelector('#element5').addEventListener('click', function(e){
+		console.log('2Event in #element5 fired!');
+	});
+});
