@@ -15,3 +15,21 @@ document.addEventListener("DOMContentLoaded", function(){
 		}
 	});
 });
+// 7 - zadanie 2
+document.addEventListener("DOMContentLoaded", function(){
+	var form = document.querySelector('form');
+	var images = document.getElementsByClassName('os_image');
+
+	form.addEventListener('submit', function(event){
+		event.preventDefault();
+		var selectedValue = this.elements[0].value;
+
+		for(var i = 0; i < images.length; i++){
+			if(images[i].getAttribute('alt') === selectedValue){
+				images[i].style.display = "block";
+			}else{
+				images[i].style.display = "none";
+			}
+		}
+	});
+});
