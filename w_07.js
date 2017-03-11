@@ -257,3 +257,64 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 });
 
+//zadanie 6:
+document.addEventListener('DOMContentLoaded', function () {
+	var card = document.querySelector('#card');
+	var type = document.querySelector('#type');
+	var button = document.querySelector('button');
+
+	card.addEventListener('keyup', function () {
+		//Karty Visa zaczynają się od cyfry 4.
+		if (this.value[0] === '4'){
+			updateCardType('Visa');
+			return;
+		}
+
+		//Karty Mastercard zaczynają się od cyfry 5.
+		if (this.value[0] === '5'){
+			updateCardType('Mastercard');
+			return;
+		}
+
+		//Karty American Express zaczynają się od cyfry 3. 
+		//Następną cyfrą musi być 4 lub 7.
+		if (this.value[0] === '3' && 
+			(this.value[1] === '4' || this.value[1] === '7')){
+			updateCardType('American Express');
+			return;
+		}
+
+		updateCardType('Zaba Pepe');
+	});
+
+	button.addEventListener('click', function (event) {
+		event.preventDefault();
+		
+		// Karty Visa mają od 13 do 16 cyfr.
+		if (type.innerHTML === "Visa" && 
+			card.value.length >= 13 &&
+			card.value.length <= 16){
+			console.log('OK');
+			return;
+		}
+		// Karty Mastercard mają równo 16 cyfr.
+		if (type.innerHTML === "Mastercard" && 
+			card.value.length === 16){
+			console.log('OK');
+			return;
+		}
+		// Karty American Express mają równo 15 cyfr.
+		if (type.innerHTML === "American Express" && 
+			card.value.length === 15){
+			console.log('OK');
+			return;
+		}
+
+		console.log("hola hola walidacja nie przeszla");
+	});
+
+	function updateCardType (cardType) {
+		type.innerHTML = cardType;
+	}
+});
+
