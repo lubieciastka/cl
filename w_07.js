@@ -17,3 +17,20 @@ for (var i = 0; i < buttons.length; i++){
 		list1.appendChild(temp);
 	});
 }
+
+// 7_inputy
+// zadanie 1
+
+var invoiceData = document.querySelector('#invoiceData');
+var invoiceCheckbox = document.querySelector('#invoice');
+
+invoiceData.style.display = 'none';
+
+invoiceCheckbox.addEventListener('click', function () {
+	if (this.checked === true) {
+		invoiceData.style.display = 'block';
+		return;
+	}
+
+	invoiceData.style.display = 'none';
+});
