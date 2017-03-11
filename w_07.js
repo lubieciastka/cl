@@ -37,13 +37,66 @@ invoiceCheckbox.addEventListener('click', function () {
 
 //zadanie 2
 
+/**
+ * Created by Jacek on 2016-01-12.
+ */
 
 document.addEventListener('DOMContentLoaded', function () {
-
 	var price = document.querySelector('#price');
 	var allCheckboxes = document.querySelectorAll('input[type="checkbox"]');
 	var allIngridients = allCheckboxes[0];
 	var ingridients = document.querySelectorAll('[data-price]');
 	var clearAll = allCheckboxes[allCheckboxes.length - 1];
 	var submit = document.querySelector('button');
+
+	for ( var i = 0; i < ingridients.length; i++){
+		ingridients[i].addEventListener('click', function(){
+			updatePrice(sumAll());
+			if (this.checked === false) {
+				allIngridients.checked = false;
+				return;
+			}
+			clearAll.checked = false;
+		});
+	}
+
+	updatePrice(sumAll());
+
+	clearAll.addEventListener('click', function () {
+		for ( var i = 0; i < ingridients.length; i++){
+			ingridients[i].checked = false;
+		}
+
+		allIngridients.checked = false;
+		updatePrice(sumAll());
+	});
+
+	allIngridients.addEventListener('click', function () {
+		for ( var i = 0; i < ingridients.length; i++){
+			ingridients[i].checked = true;
+		}
+
+		clearAll.checked = false;
+		updatePrice(sumAll());
+	});
+
+	function sumAll (){
+		var tempSum = 0;
+
+		for ( var i = 0; i < ingridients.length; i++){
+			if (ingridients[i].checked === true) {
+				tempSum += parseFloat(ingridients[i].dataset.price);
+			}
+		}
+
+		return tempSum.toFixed(2);
+	}
+
+	function updatePrice (sumPrice) {
+		price.innerHTML = sumPrice + "zł";
+	}
+
 });
+
+
+
