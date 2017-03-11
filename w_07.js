@@ -318,3 +318,46 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 });
 
+
+// Warsztaty - slider
+document.addEventListener('DOMContentLoaded', function () {
+	var nextPicture = document.querySelector('#nextPicture');
+	var prevPicture = document.querySelector('#prevPicture');
+	var list = document.querySelectorAll('.slider li');
+	var currentImage = 0;
+
+	showCurrentImage();
+
+	nextPicture.addEventListener('click', function () {
+		moveSlider(1);
+	});
+
+	prevPicture.addEventListener('click', function () {
+		moveSlider(-1);
+	});
+
+	function moveSlider (direction) {
+		hideCurrentImage();
+		currentImage += direction;
+		validateCurrentPosition();
+		showCurrentImage();
+	}
+
+	function validateCurrentPosition () {
+		if (currentImage < 0) {
+			currentImage = list.length - 1;
+		}
+
+		if (currentImage === list.length) {
+			currentImage = 0;
+		}
+	}
+
+	function hideCurrentImage () {
+		list[currentImage].classList.remove('visible');
+	}
+
+	function showCurrentImage () {
+		list[currentImage].classList.add('visible');
+	}
+});
