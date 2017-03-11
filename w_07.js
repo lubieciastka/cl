@@ -34,3 +34,16 @@ invoiceCheckbox.addEventListener('click', function () {
 
 	invoiceData.style.display = 'none';
 });
+
+//zadanie 2
+
+
+document.addEventListener('DOMContentLoaded', function () {
+
+	var price = document.querySelector('#price');
+	var allCheckboxes = document.querySelectorAll('input[type="checkbox"]');
+	var allIngridients = allCheckboxes[0];
+	var ingridients = document.querySelectorAll('[data-price]');
+	var clearAll = allCheckboxes[allCheckboxes.length - 1];
+	var submit = document.querySelector('button');
+});
