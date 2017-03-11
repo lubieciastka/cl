@@ -98,5 +98,36 @@ document.addEventListener('DOMContentLoaded', function () {
 
 });
 
+// zadanie 3
 
+document.addEventListener('DOMContentLoaded', function () {
+ 	var osImages = document.querySelectorAll('[data-os]');
+ 	var osSelect = document.querySelector('.form-control');
+ 	var button = document.querySelector('button');
+
+ 	hideAllImages();
+	showSelectedImage();
+
+ 	button.addEventListener('click', function (event) {
+ 		event.preventDefault();
+		hideAllImages();
+ 		showSelectedImage();
+ 	});
+
+ 	function hideAllImages () {
+ 		for ( var i = 0; i < osImages.length; i++ ) {
+	 		osImages[i].style.display = 'none';
+	 	}
+ 	}
+
+ 	function showSelectedImage () {
+ 		var selectedValue = osSelect.value;
+
+ 		for ( var i = 0; i < osImages.length; i++ ) {
+ 			if (osImages[i].dataset.os === selectedValue) {
+ 				osImages[i].style.display = '';
+ 			}
+ 		}
+ 	}
+});
 
