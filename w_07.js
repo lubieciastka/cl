@@ -131,3 +131,90 @@ document.addEventListener('DOMContentLoaded', function () {
  	}
 });
 
+//zadanie 4
+https://regex101.com/
+ document.addEventListener('DOMContentLoaded', function () {
+ 	var email = document.querySelector('#email');
+ 	var name = document.querySelector('#name');
+ 	var surname = document.querySelector('#surname');
+ 	var pass1 = document.querySelector('#pass1');
+ 	var pass2 = document.querySelector('#pass2');
+ 	var agree = document.querySelector('#agree');
+ 	var button = document.querySelector('button');
+
+ 	button.addEventListener('click', function (event) {
+ 		if (validateEmail() === true &&
+ 			validateName() === true &&
+ 			validateSurname() === true &&
+ 			validatePasswordEqaulity() === true &&
+ 			validateCheckbox() === true &&
+ 			validatePassword() === true) {
+ 			// przepuszczamy
+ 		}else{
+ 			event.preventDefault();
+ 			console.log('aaa');
+ 		}
+ 	});
+
+	//Email zawiera w sobie @
+	function validateEmail () {
+		if (email.value.indexOf('@') < 0 ) {
+			//nieznalezlismy
+			return false;
+		}
+		return true;
+	}
+
+	//Imię jest dłuższe niż pięć znaków.
+	function validateName () {
+		if (name.value.length <= 5 ) {
+			//mniejsze
+			return false;
+		}
+		return true;
+	}
+
+	//Nazwisko jest dłuższe niż pięć znaków.
+	function validateSurname () {
+		if (surname.value.length > 5 ) {
+			//mniejsze
+			return true;
+		}
+		return false;
+	}
+
+	//Hasło i hasło drugie są identyczne.
+	function validatePasswordEqaulity () {
+		return pass1.value === pass2.value;
+	}
+
+	//Checkbox musi być zaznaczony.
+	function validateCheckbox () {
+		return agree.checked;
+	}
+
+	//Warunek dla chętnych. Dodatkowe. Hasło ma mieć co 
+	//najmniej pięć znaków (w tym co najmniej jedną liczbę i jedną literę).
+	function validatePassword () {
+		var passValue = pass1.value;
+
+		if (passValue.length < 6) {
+			return false;
+		}
+
+		var hasNumber = false;
+		var hasLetter = false;
+
+		for (var i = 0; i < passValue.length; i++){
+			//sprawdzamy czy to jest numer, false => number
+			if (isNaN(passValue[i]) === false) {
+				hasNumber = true;
+			}else {
+				hasLetter = true;
+			}
+		}
+
+		return hasNumber === true && hasLetter === true;
+	}
+});
+
