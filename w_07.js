@@ -218,3 +218,42 @@ https://regex101.com/
 	}
 });
 
+//zadanie 5
+document.addEventListener('DOMContentLoaded', function () {
+	var team1 = document.querySelector('#team1');
+	var points1 = document.querySelector('#points1');
+	var team2 = document.querySelector('#team2');
+	var points2 = document.querySelector('#points2');
+	var button = document.querySelector('button');
+
+	button.addEventListener('click', function (event) {
+		event.preventDefault();
+		if (validateTeams() === true && 
+			validatePoints() === true ){
+
+			var temp = document.createElement('tr');
+			var td1 = document.createElement('td');
+			var td2 = document.createElement('td');
+			var td3 = document.createElement('td');
+
+			td1.innerHTML = team1.value;
+			td2.innerHTML = team2.value;
+			td3.innerHTML = points1.value + ' - ' + points2.value;
+
+			temp.appendChild(td1);
+			temp.appendChild(td2);
+			temp.appendChild(td3);
+
+			document.querySelector('tbody').appendChild(temp);
+		}
+	});
+
+	function validateTeams () {
+		return team1.value !== team2.value;
+	}
+
+	function validatePoints () {
+		return points1.value >= 0 && points2.value >= 0;
+	}
+});
+
