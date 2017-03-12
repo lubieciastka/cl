@@ -493,3 +493,63 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 });
 
+
+//warsztaty - tooltip
+
+document.addEventListener('DOMContentLoaded', function () {
+	var menu = document.querySelectorAll('.nav > ul > li');
+
+	for (var i = 0; i < menu.length; i++) {
+		menu[i].addEventListener('mouseover', function () { 
+			toggleMenu(this, 'block');
+		});
+
+		menu[i].addEventListener('mouseout', function () { 
+			toggleMenu(this, 'none');
+		});
+	}
+
+	function toggleMenu (element, display) {
+		var temp = element.children;
+
+		if (temp.length > 0) {
+			temp[0].style.display = display;
+		}
+	}
+});
+
+//css
+.tooltip {
+    text-decoration: underline;
+    position: relative;
+    display: inline-block;
+}
+
+.tooltipText {
+    position: absolute;
+    top: 100%;
+    display: block;
+    color: white;
+    border: solid black 1px;
+    z-index: 1;
+    padding: 10px;
+    background: darkblue;
+    margin-top:15px;
+
+    -webkit-box-shadow: 0px 2px 0px 10px rgba(255,0,204,1);
+    -moz-box-shadow: 0px 2px 0px 10px rgba(255,0,204,1);
+    box-shadow: 0px 2px 0px 10px rgba(255,0,204,1);
+}
+
+.tooltipText::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    top:-15px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 15px 20px 15px;
+    border-color: transparent transparent darkblue transparent;
+}
+
