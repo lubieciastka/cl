@@ -493,7 +493,6 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 });
 
-
 //warsztaty - tooltip
 document.addEventListener('DOMContentLoaded', function () {
 	var tooltip = document.querySelectorAll('.tooltip');
@@ -547,3 +546,68 @@ document.addEventListener('DOMContentLoaded', function () {
     border-color: transparent transparent darkblue transparent;
 }
 
+//warsztaty - todolista
+
+document.addEventListener('DOMContentLoaded', function () {
+	var taskList = document.querySelector('#taskList');
+	var addTaskButton = document.querySelector('#addTaskButton');
+	var taskInput = document.querySelector('#taskInput');
+	var removeFinishedTasksButton = document.querySelector('#removeFinishedTasksButton');
+	var counter = document.querySelector('#counter');
+
+	updateCounter();
+	
+	addTaskButton.addEventListener('click', function () {
+
+		if (validateTask() === false) {
+			return;
+		}
+		
+		var task = taskInput.value;
+		var li = document.createElement('li');
+		var h1 = document.createElement('h1');
+		var buttonDelete = document.createElement('button');
+		var buttonComplete = document.createElement('button');
+
+		taskInput.value = '';
+		h1.innerHTML = task;
+		buttonDelete.innerHTML = 'Delete';
+		buttonComplete.innerHTML = 'Complete';
+
+		buttonDelete.addEventListener('click', function () {
+			var tempLi = this.parentElement;
+
+			tempLi.parentElement.removeChild(tempLi);
+			updateCounter();
+		});
+
+		buttonComplete.addEventListener('click', function () {
+			this.parentElement.firstElementChild.classList.toggle('done');
+			updateCounter();
+		});
+
+		li.appendChild(h1);
+		li.appendChild(buttonDelete);
+		li.appendChild(buttonComplete);
+		taskList.appendChild(li);
+		updateCounter();
+	});
+
+	function updateCounter () {
+		counter.innerHTML = taskList.querySelectorAll('h1:not(.done)').length;
+	}
+
+	function validateTask () {
+		return taskInput.value.length > 5 && taskInput.value.length < 100;
+	}
+
+	removeFinishedTasksButton.addEventListener('click', function () {
+		var tempList = taskList.querySelectorAll('.done');
+
+		for (var i = 0; i < tempList.length; i++) {
+			tempList[i].parentElement.parentElement.removeChild(tempList[i].parentElement);
+		}
+		updateCounter();
+	});
+
+});
