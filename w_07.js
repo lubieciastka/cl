@@ -361,3 +361,112 @@ document.addEventListener('DOMContentLoaded', function () {
 		list[currentImage].classList.add('visible');
 	}
 });
+
+// warsztaty - galeria:
+/**
+ * Created by Jacek on 2015-12-16.
+ */
+
+document.addEventListener('DOMContentLoaded', function () {
+	var list = document.querySelectorAll('.gallery li');
+	var body = document.querySelector('body');
+
+	for (var i = 0; i < list.length; i++){
+		list[i].addEventListener('click', function () {
+			createBigImage(this.firstElementChild.getAttribute('src'));
+		});
+	}
+
+	function createBigImage (src) {
+
+		/*
+		 <div class="fullScreen">
+		   <img src="./images/wrong.png">
+		   <button class="close">Close</button>
+		 </div>
+		 */
+		 var fullScreen = document.createElement('div');
+		 fullScreen.classList.add('fullScreen');
+
+		 var img = document.createElement('img');
+		 img.setAttribute('src', src);
+
+		 var button = document.createElement('button');
+		 button.classList.add('close');
+		 button.innerHTML = "Close";
+		 
+		 button.addEventListener('click', function () {
+		 	fullScreen.parentElement.removeChild(fullScreen);
+		 });
+
+		 fullScreen.appendChild(img);
+		 fullScreen.appendChild(button);
+		 body.appendChild(fullScreen);
+	}
+});
+// warsztaty - galeria - filtry - wersja basic:
+
+document.addEventListener('DOMContentLoaded', function () {
+	var list = document.querySelectorAll('#gallery img');
+	var showButton = document.querySelector('#showButton');
+	var hideButton = document.querySelector('#hideButton');
+	var tagInput = document.querySelector('#tagInput');
+
+	showButton.addEventListener("click", function () {
+		var temp = tagInput.value;
+		
+		tagInput.value = '';
+		for (var i = 0; i < list.length; i++) {
+			if (list[i].dataset.tag.indexOf(temp) >= 0){
+				list[i].classList.remove('invisible');
+			}
+		}
+	});
+
+	hideButton.addEventListener("click", function () {
+		var temp = tagInput.value;
+
+		tagInput.value = '';
+		for (var i = 0; i < list.length; i++) {
+			if (list[i].dataset.tag.indexOf(temp) >= 0){
+				list[i].classList.add('invisible');
+			}	
+		}
+	});
+});
+
+// warsztaty - galeria - filtry - dodatkowe:
+
+document.addEventListener('DOMContentLoaded', function () {
+	var list = document.querySelectorAll('#gallery img');
+	var showButton = document.querySelector('#showButton');
+	var hideButton = document.querySelector('#hideButton');
+	var tagInput = document.querySelector('#tagInput');
+
+	showButton.addEventListener("click", function () {
+		var temp = tagInput.value.split(' ');
+		
+		tagInput.value = '';
+		for (var i = 0; i < list.length; i++) {
+			for (var j = 0; j < temp.length; j++){
+				if (list[i].dataset.tag.indexOf(temp[j]) >= 0){
+					list[i].classList.remove('invisible');
+				}	
+			}
+		}
+	});
+
+	hideButton.addEventListener("click", function () {
+		var temp = tagInput.value.split(' ');
+		
+		tagInput.value = '';
+		for (var i = 0; i < list.length; i++) {
+			for (var j = 0; j < temp.length; j++){
+				if (list[i].dataset.tag.indexOf(temp[j]) >= 0){
+					list[i].classList.add('invisible');
+				}	
+			}
+		}
+	});
+});
+
