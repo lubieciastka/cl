@@ -470,3 +470,26 @@ document.addEventListener('DOMContentLoaded', function () {
 	});
 });
 
+// warsztaty - menu 
+document.addEventListener('DOMContentLoaded', function () {
+	var menu = document.querySelectorAll('.nav > ul > li');
+
+	for (var i = 0; i < menu.length; i++) {
+		menu[i].addEventListener('mouseover', function () { 
+			toggleMenu(this, 'block');
+		});
+
+		menu[i].addEventListener('mouseout', function () { 
+			toggleMenu(this, 'none');
+		});
+	}
+
+	function toggleMenu (element, display) {
+		var temp = element.children;
+
+		if (temp.length > 0) {
+			temp[0].style.display = display;
+		}
+	}
+});
+
