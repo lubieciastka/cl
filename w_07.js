@@ -495,26 +495,20 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 //warsztaty - tooltip
-
 document.addEventListener('DOMContentLoaded', function () {
-	var menu = document.querySelectorAll('.nav > ul > li');
+	var tooltip = document.querySelectorAll('.tooltip');
 
-	for (var i = 0; i < menu.length; i++) {
-		menu[i].addEventListener('mouseover', function () { 
-			toggleMenu(this, 'block');
+	for (var i = 0; i < tooltip.length; i++) {
+		tooltip[i].addEventListener('mouseover', function () { 
+			var span = document.createElement('span');
+			span.classList.add('tooltipText');
+			span.innerHTML = this.dataset.text;
+			this.appendChild(span);
 		});
 
-		menu[i].addEventListener('mouseout', function () { 
-			toggleMenu(this, 'none');
+		tooltip[i].addEventListener('mouseout', function () { 
+			this.removeChild(this.querySelector('.tooltipText'));
 		});
-	}
-
-	function toggleMenu (element, display) {
-		var temp = element.children;
-
-		if (temp.length > 0) {
-			temp[0].style.display = display;
-		}
 	}
 });
 
